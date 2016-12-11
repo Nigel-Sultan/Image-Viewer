@@ -188,8 +188,8 @@ static inline void mat4x4_from_vec3_mul_outer(mat4x4 M, vec3 a, vec3 b)
 }
 //created for shearing
 static inline void mat4x4_shear(mat4x4 Q, mat4x4 M, float x, float y){
-	vec4 yx = {{x},
-			  {y},{1},{1}};
+	vec4 yx = {x,
+			y,1,1};
 	mat4x4 R = {
 		{1.f, y, 1.f, 0.f},
 		{x, 1.f, 1.f, 0.f},
