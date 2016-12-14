@@ -3,9 +3,11 @@
 #define MAX_COLOR 255 //max color definition for later use
 #define GL_GLEXT_PROTOTYPES
 
-#include "gl2.h"
-#include "glfw3.h"
+#include <GLFW/glfw3.h>
+#include <GLES2/gl2.h>
+
 #include "linmath.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
