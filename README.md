@@ -18,4 +18,4 @@ Computer Graphics
 •	L shears x up
 •	J shears x down
 •	I shears y up
-•	k shears y down
+•	K shears y down
