@@ -51,7 +51,6 @@ static void key_callback(GLFWwindow*, int, int, int, int);
 Image read_data(char*);
 int write_data(int, FILE*);
 int write_image(int, char*);
-void glCompileShaderOrDie(GLuint);
 
 float scaleTo[2] = { 1.0, 1.0 };
 float shearTo[2] = { 0.0, 0.0 };
