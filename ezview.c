@@ -44,26 +44,6 @@ Vertex Vertexes[] =
 	{{-1, -1}, {0, 0.99999}}
 };
 
-char* vertex_shader_src =
-"uniform mat4 MVP;\n"
-"attribute vec2 vPos;\n"
-"attribute vec2 TexCoordIn;\n"
-"varying vec2 TexCoordOut;\n"
-"\n"
-"void main(void) {\n"
-"    gl_Position = Position* vec4(vPos, 0.0, 1.0);\n"
-"    TexCoordOut = TexCoordIn;\n"
-"}";
-
-
-char* fragment_shader_src =
-"varying vec2 TexCoordOut;\n"
-"uniform sampler2D Texture;\n"
-"\n"
-"void main(void) {\n"
-"    gl_FragColor = texture2D(Texture, DestinationTexcoord);\n"
-"}";
-
 Image *buffer;
 
 static void error_callback(int, const char*);
@@ -227,6 +207,26 @@ int write_data(int int_format, FILE *output_filename)
     }
     return(0);
 }
+
+char* vertex_shader_src =
+"uniform mat4 MVP;\n"
+"attribute vec2 vPos;\n"
+"attribute vec2 TexCoordIn;\n"
+"varying vec2 TexCoordOut;\n"
+"\n"
+"void main(void) {\n"
+"    gl_Position = Position* vec4(vPos, 0.0, 1.0);\n"
+"    TexCoordOut = TexCoordIn;\n"
+"}";
+
+
+char* fragment_shader_src =
+"varying vec2 TexCoordOut;\n"
+"uniform sampler2D Texture;\n"
+"\n"
+"void main(void) {\n"
+"    gl_FragColor = texture2D(Texture, DestinationTexcoord);\n"
+"}";
 
 
 static void error_callback(int error, const char* description) 
