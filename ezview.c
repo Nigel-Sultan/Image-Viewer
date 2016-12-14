@@ -136,7 +136,7 @@ Image read_data(char *input_file){
             for(j=0; j<buffer->width; j++)
 			{
                 Pixel *pixels = (Pixel*)malloc(sizeof(Pixel));
-                fscanf(ifp, "%hhd %hhd %hhd", &pixels->r, &pixels->g, &pixels->b);
+                fscanf(ifp, "%.f %.f %.f", &pixels->r, &pixels->g, &pixels->b);
                 buffer->data[i*buffer->width * 3 + j * 3] = pixels->r;
                 buffer->data[i*buffer->width * 3 + j * 3 + 1] = pixels->g;
                 buffer->data[i*buffer->width * 3 + j * 3 + 2] = pixels->b;
@@ -254,7 +254,7 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 
 		if (key == GLFW_KEY_E) 
 		{
-			glfwWindowShouldClose(window);
+			glfwSetWindowShouldClose(window, 1);
 		}
 	
 		if (key == GLFW_KEY_W) 
@@ -477,6 +477,8 @@ int main(int argc, char *argv[])
 
 		s[0][0] = s[0][0] * scaleTo[0];
 		s[1][1] = s[1][1] * scaleTo[1];
+		
+		mat4x4_identity(sh);
 		
 		sh[0][1] = shearTo[0];
 		sh[1][0] = shearTo[1];
