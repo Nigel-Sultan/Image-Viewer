@@ -30,7 +30,7 @@ typedef struct Image
 
 typedef struct Vertex 
 {
-	float position[2];
+	float Position[2];
 	float TexCoord[2];
 } Vertex;
 
