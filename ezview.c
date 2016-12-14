@@ -15,9 +15,9 @@
 
 typedef struct Pixel
 {
-    double r;    //create a pixel struct like discussed in class
-    double g;
-    double b;
+    unsigned char r;    //create a pixel struct like discussed in class
+    unsigned char g;
+    unsigned char b;
 }Pixel;
 
 typedef struct Image
@@ -136,7 +136,7 @@ Image read_data(char *input_file){
             for(j=0; j<buffer->width; j++)
 			{
                 Pixel *pixels = (Pixel*)malloc(sizeof(Pixel));
-                fscanf(ifp, "%.f %.f %.f", &pixels->r, &pixels->g, &pixels->b);
+                fscanf(ifp, "%hhd %hhd %hhd", &pixels->r, &pixels->g, &pixels->b);
                 buffer->data[i*buffer->width * 3 + j * 3] = pixels->r;
                 buffer->data[i*buffer->width * 3 + j * 3 + 1] = pixels->g;
                 buffer->data[i*buffer->width * 3 + j * 3 + 2] = pixels->b;
