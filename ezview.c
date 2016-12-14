@@ -215,17 +215,17 @@ char* vertex_shader_src =
 "varying vec2 TexCoordOut;\n"
 "\n"
 "void main(void) {\n"
-"    gl_Position = Position* vec4(vPos, 0.0, 1.0);\n"
+"    gl_Position = MVP * vec4(vPos, 0.0, 1.0);\n"
 "    TexCoordOut = TexCoordIn;\n"
 "}";
 
 
 char* fragment_shader_src =
-"varying vec2 TexCoordOut;\n"
+"varying lowp vec2 TexCoordOut;\n"
 "uniform sampler2D Texture;\n"
 "\n"
 "void main(void) {\n"
-"    gl_FragColor = texture2D(Texture, DestinationTexcoord);\n"
+"    gl_FragColor = texture2D(Texture, TexCoordOut);\n"
 "}";
 
 
