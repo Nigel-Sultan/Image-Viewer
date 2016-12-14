@@ -67,12 +67,14 @@ char* fragment_shader_src =
 Image *buffer;
 
 static void error_callback(int, const char*);
-void key_callback(GLFWwindow*, int, int, int, int);
+static void key_callback(GLFWwindow*, int, int, int, int);
 Image read_data(char*);
+int write_data(int, FILE*);
+int write_image(int, char*);
+void glCompileShaderOrDie(GLuint);
 
-
-float scaleTo[] = { 1.0, 1.0 };
-float shearTo[] = { 0.0, 0.0 };
+float scaleTo[2] = { 1.0, 1.0 };
+float shearTo[2] = { 0.0, 0.0 };
 float translationTo[2] = { 0.0, 0.0 };
 float rotationTo = 0;
 
@@ -480,10 +482,10 @@ int main(int argc, char *argv[])
 		sh[0][1] = shearTo[0];
 		sh[1][0] = shearTo[1];
 		
-		mat4x4_identity(t)
+		mat4x4_identity(t);
 		mat4x4_translate(t, translationTo[0], translationTo[1], 0);
 
-		mat4x4_identity(r)
+		mat4x4_identity(r);
 		mat4x4_rotate_Z(r, r, rotationTo);
 
 
